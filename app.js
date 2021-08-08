@@ -11,16 +11,17 @@ var app = express();
 
 app.use(express.json());
 
-// app.get("/api/add", (req, res) => {
-//   res.status(200).json({
-//     status: "success",
-//     data: {
-//       add: 1 + 1
-//     }
-//   });
-// });
-
 app.post("/api/add", (req, res) => {
+  const num1 = req.body.number1;
+  const num2 = req.body.number2;
+  const sumTotal = num1 + num2;
+
+  res.status(200).json({
+    sum: sumTotal
+  });
+});
+
+app.get("/api/add", (req, res) => {
   const num1 = req.body.number1;
   const num2 = req.body.number2;
   const sumTotal = num1 + num2;
@@ -57,9 +58,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
-// app.get("/api/v1/add", (req, res) => {
-//   res.status(200).json({ message: "hello from the server " });
-// });
 
 module.exports = app;
