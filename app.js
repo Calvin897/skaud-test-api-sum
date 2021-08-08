@@ -11,14 +11,14 @@ var app = express();
 
 app.use(express.json());
 
-app.get("/api/add", (req, res) => {
-  res.status(200).json({
-    status: "success",
-    data: {
-      add: 1 + 1
-    }
-  });
-});
+// app.get("/api/add", (req, res) => {
+//   res.status(200).json({
+//     status: "success",
+//     data: {
+//       add: 1 + 1
+//     }
+//   });
+// });
 
 app.post("/api/add", (req, res) => {
   const num1 = req.body.number1;
@@ -26,10 +26,7 @@ app.post("/api/add", (req, res) => {
   const sumTotal = num1 + num2;
 
   res.status(200).json({
-    status: "success",
-    data: {
-      add: sumTotal
-    }
+    sum: sumTotal
   });
 });
 // view engine setup
